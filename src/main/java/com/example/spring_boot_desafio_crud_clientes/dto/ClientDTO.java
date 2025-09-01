@@ -3,12 +3,30 @@ import java.time.LocalDate;
 
 import com.example.spring_boot_desafio_crud_clientes.entities.Client;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.PositiveOrZero;
+import jakarta.validation.constraints.Size;
+
 public class ClientDTO {
     private Long id;
+
+    @NotBlank(message="Campo requerido")
+    @Size(min=3, max=80, message="Nome precisa ter de 3 a 80 caracteres")
     private String name;
+
+    @NotBlank(message="Campo requerido")
+    @Size(min=11, max=11, message="CPF precisa ter 11 caracteres")
     private String cpf;
+
+    @Positive(message="O valor da renda deve ser positivo")
     private Double income;
+
+    @PastOrPresent
     private LocalDate birthDate;
+
+    @PositiveOrZero(message="O número de filhos deve ser maior ou igual a zero")
     private Integer children;
 
     public ClientDTO() {}
