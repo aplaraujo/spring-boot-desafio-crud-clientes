@@ -85,7 +85,7 @@ O professor já terá preparado em seu computador as requisições Postman abaix
 
 ### CHECKLIST:
 
-- [ ] Busca por id retorna cliente existente
+- [x] Busca por id retorna cliente existente
 - [ ] Busca por id retorna 404 para cliente inexistente
 - [ ] Busca paginada retorna listagem paginada corretamente
 - [ ] Inserção de cliente insere cliente com dados válidos
