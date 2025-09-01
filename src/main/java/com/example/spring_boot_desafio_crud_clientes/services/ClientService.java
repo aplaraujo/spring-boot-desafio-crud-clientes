@@ -3,14 +3,17 @@ package com.example.spring_boot_desafio_crud_clientes.services;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.spring_boot_desafio_crud_clientes.dto.ClientDTO;
 import com.example.spring_boot_desafio_crud_clientes.entities.Client;
 import com.example.spring_boot_desafio_crud_clientes.repositories.ClientRepository;
+import com.example.spring_boot_desafio_crud_clientes.services.exceptions.DatabaseException;
 import com.example.spring_boot_desafio_crud_clientes.services.exceptions.ResourceNotFoundException;
 
 @Service
@@ -47,6 +50,19 @@ public class ClientService {
         copyDtoToEntity(dto, entity);
         entity = clientRepository.save(entity);
         return new ClientDTO(entity);
+    }
+
+    @Transactional(propagation=Propagation.SUPPORTS)
+    public void delete(Long id) {
+        if (!clientRepository.existsById(id)) {
+            throw new ResourceNotFoundException("Cliente não encontrado!");
+        }
+
+        try {
+            clientRepository.deleteById(id);
+        } catch (DataIntegrityViolationException e) {
+            throw new DatabaseException("Falha de integridade referencial");
+        }
     }
 
 
