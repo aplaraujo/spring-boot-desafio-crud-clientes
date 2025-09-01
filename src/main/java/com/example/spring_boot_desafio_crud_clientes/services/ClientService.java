@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.example.spring_boot_desafio_crud_clientes.dto.ClientDTO;
 import com.example.spring_boot_desafio_crud_clientes.entities.Client;
 import com.example.spring_boot_desafio_crud_clientes.repositories.ClientRepository;
+import com.example.spring_boot_desafio_crud_clientes.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class ClientService {
@@ -39,6 +40,15 @@ public class ClientService {
         entity = clientRepository.save(entity);
         return new ClientDTO(entity);
     }
+
+    @Transactional
+    public ClientDTO update(Long id, ClientDTO dto) {
+        Client entity = clientRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Cliente com o id: " + id + " não encontrado"));
+        copyDtoToEntity(dto, entity);
+        entity = clientRepository.save(entity);
+        return new ClientDTO(entity);
+    }
+
 
     private void copyDtoToEntity(ClientDTO dto, Client entity) {
         entity.setName(dto.getName());
