@@ -22,7 +22,7 @@ public class ClientService {
     @Transactional(readOnly=true)
     public ClientDTO findById(Long id) {
         Optional<Client> result = clientRepository.findById(id);
-        Client client = result.get();
+        Client client = result.orElseThrow(() -> new ResourceNotFoundException("Cliente não encontrado!"));
         ClientDTO dto = new ClientDTO(client);
         return dto;
     }

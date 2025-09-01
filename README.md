@@ -86,11 +86,11 @@ O professor já terá preparado em seu computador as requisições Postman abaix
 ### CHECKLIST:
 
 - [x] Busca por id retorna cliente existente
-- [ ] Busca por id retorna 404 para cliente inexistente
+- [x] Busca por id retorna 404 para cliente inexistente
 - [x] Busca paginada retorna listagem paginada corretamente
 - [x] Inserção de cliente insere cliente com dados válidos
 - [ ] Inserção de cliente retorna 422 e mensagens customizadas com dados inválidos
-- [ ] Atualização de cliente atualiza cliente com dados válidos
+- [x] Atualização de cliente atualiza cliente com dados válidos
 - [ ] Atualização de cliente retorna 404 para cliente inexistente
 - [ ] Atualização de cliente retorna 422 e mensagens customizadas com dados inválidos
 - [ ] Deleção de cliente deleta cliente existente
