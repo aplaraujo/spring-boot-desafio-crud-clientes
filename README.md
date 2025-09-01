@@ -89,9 +89,9 @@ O professor já terá preparado em seu computador as requisições Postman abaix
 - [x] Busca por id retorna 404 para cliente inexistente
 - [x] Busca paginada retorna listagem paginada corretamente
 - [x] Inserção de cliente insere cliente com dados válidos
-- [ ] Inserção de cliente retorna 422 e mensagens customizadas com dados inválidos
+- [x] Inserção de cliente retorna 422 e mensagens customizadas com dados inválidos
 - [x] Atualização de cliente atualiza cliente com dados válidos
-- [ ] Atualização de cliente retorna 404 para cliente inexistente
-- [ ] Atualização de cliente retorna 422 e mensagens customizadas com dados inválidos
-- [ ] Deleção de cliente deleta cliente existente
-- [ ] Deleção de cliente retorna 404 para cliente inexistente
+- [x] Atualização de cliente retorna 404 para cliente inexistente
+- [x] Atualização de cliente retorna 422 e mensagens customizadas com dados inválidos
+- [x] Deleção de cliente deleta cliente existente
+- [x] Deleção de cliente retorna 404 para cliente inexistente
